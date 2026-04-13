@@ -21,7 +21,7 @@ export const agents: Agent[] = [
     role: 'Mission Commander — Routes work, assigns agents, enforces workflow discipline',
     type: 'Coordinator',
     status: 'active',
-    currentTask: 'Coordinated MK strategy workflow — 5 agents deployed',
+    currentTask: 'Assigned Mimir to create MEDIUM + HARD specs',
     lastSeen: 'now',
     confidence: 92,
     tasksCompleted: 1,
@@ -48,8 +48,8 @@ export const agents: Agent[] = [
     emoji: '🧠',
     role: 'Strategy Analyst — Converts raw ideas into code-ready trading specifications',
     type: 'Analysis Agent',
-    status: 'idle',
-    currentTask: 'Completed MK_EASY_SUPPLY_DEMAND_PINBAR spec (20+ inputs, 7 alerts)',
+    status: 'processing',
+    currentTask: 'Creating MK MEDIUM and MK HARD strategy specs (in progress)',
     lastSeen: 'now',
     confidence: 91,
     tasksCompleted: 1,
@@ -63,7 +63,7 @@ export const agents: Agent[] = [
     role: 'Pine Architect — Writes clean Pine Script from structured specifications',
     type: 'Code Agent',
     status: 'idle',
-    currentTask: 'Generated MK strategy v2 — 687 lines of Pine Script v6',
+    currentTask: 'Awaiting MEDIUM/HARD specs from Mimir',
     lastSeen: '5s ago',
     confidence: 93,
     tasksCompleted: 1,
@@ -143,82 +143,80 @@ export const agents: Agent[] = [
 ];
 
 export const activityFeed = [
-  { agent: '⚔️', name: 'Ragnar', action: 'deployed 5-agent workflow for MK strategy', time: '2 days ago', type: 'success' as const },
+  { agent: '⚔️', name: 'Ragnar', action: 'assigned Mimir to create MEDIUM + HARD specs', time: '1m ago', type: 'success' as const },
+  { agent: '🧠', name: 'Mimir', action: 'processing MEDIUM and HARD strategy variants', time: '1m ago', type: 'success' as const },
   { agent: '📚', name: 'Saga', action: 'analyzed MK course — 6 chapters, 50+ rules extracted', time: '2 days ago', type: 'success' as const },
   { agent: '🧠', name: 'Mimir', action: 'completed MK_EASY_SUPPLY_DEMAND_PINBAR spec', time: '2 days ago', type: 'success' as const },
   { agent: '⚙️', name: 'Brokk', action: 'generated 687 lines of Pine Script v6', time: '2 days ago', type: 'success' as const },
   { agent: '🛡️', name: 'Tyr', action: 'audited strategy — found CRITICAL zone logic bug', time: '2 days ago', type: 'warning' as const },
   { agent: '🐛', name: 'Eir', action: 'fixed zone-tested inversion + gap detection', time: '2 days ago', type: 'success' as const },
-  { agent: '🧾', name: 'Bragi', action: 'documented security incident prevention', time: '1 day ago', type: 'success' as const },
   { agent: '⚔️', name: 'Ragnar', action: 'approved MK strategy v2 for deployment', time: '1 day ago', type: 'success' as const },
-  { agent: '🧾', name: 'Bragi', action: 'created 6 memory system improvements', time: '1 day ago', type: 'success' as const },
+  { agent: '🧾', name: 'Bragi', action: 'documented security incident prevention', time: '1 day ago', type: 'success' as const },
 ];
 
 export const logs = [
-  { id: 1, category: 'verification' as const, agent: 'Tyr', message: 'CRITICAL: Zone tested logic inverted — zones marked tested on touch instead of body close beyond', time: '2 days ago' },
-  { id: 2, category: 'observation' as const, agent: 'Saga', message: 'MK course: 6 target folders identified (Ch 8-10 Supply/Demand, Ch 12-14 Price Action)', time: '2 days ago' },
-  { id: 3, category: 'execution' as const, agent: 'Brokk', message: 'MK strategy v2 deployed — 687 lines, VWAP + zones + pin bars + 7 alerts', time: '2 days ago' },
-  { id: 4, category: 'observation' as const, agent: 'Ragnar', message: 'Workflow complete: Saga → Mimir → Brokk → Tyr → Eir — all agents reported DONE', time: '2 days ago' },
-  { id: 5, category: 'warning' as const, agent: 'Bragi', message: 'Security incident documented: local model (14B) + web tools caused session disconnect', time: '1 day ago' },
-  { id: 6, category: 'error' as const, agent: 'Eir', message: 'Fixed zone-tested logic — changed from inside-zone to body-close-beyond', time: '2 days ago' },
-  { id: 7, category: 'verification' as const, agent: 'Tyr', message: 'MK strategy audit: CONDITIONAL PASS — core features implemented, bug fixed', time: '2 days ago' },
-  { id: 8, category: 'execution' as const, agent: 'Bragi', message: 'Memory system overhaul complete: 6 improvements, 2 cron jobs active', time: '1 day ago' },
-  { id: 9, category: 'observation' as const, agent: 'Ragnar', message: 'Agent naming convention established: Viking theme (Ragnar, Saga, Mimir, Brokk, Eir, Tyr, Ivar, Heimdall, Bragi)', time: '2 days ago' },
-  { id: 10, category: 'warning' as const, agent: 'Tyr', message: 'Gap-through-zone detection added per spec requirement', time: '2 days ago' },
+  { id: 1, category: 'observation' as const, agent: 'Ragnar', message: 'NEW TASK: Generate MEDIUM and HARD variants from MK course', time: '1m ago' },
+  { id: 2, category: 'execution' as const, agent: 'Mimir', message: 'Processing Ch 9 + Ch 13 (MEDIUM) and Ch 10 + Ch 14 (HARD)', time: '1m ago' },
+  { id: 3, category: 'verification' as const, agent: 'Tyr', message: 'CRITICAL: Zone tested logic inverted — zones marked tested on touch instead of body close beyond', time: '2 days ago' },
+  { id: 4, category: 'observation' as const, agent: 'Saga', message: 'MK course: 6 target folders identified (Ch 8-10 Supply/Demand, Ch 12-14 Price Action)', time: '2 days ago' },
+  { id: 5, category: 'execution' as const, agent: 'Brokk', message: 'MK strategy v2 deployed — 687 lines, VWAP + zones + pin bars + 7 alerts', time: '2 days ago' },
+  { id: 6, category: 'observation' as const, agent: 'Ragnar', message: 'Workflow complete: Saga → Mimir → Brokk → Tyr → Eir — all agents reported DONE', time: '2 days ago' },
+  { id: 7, category: 'warning' as const, agent: 'Bragi', message: 'Security incident documented: local model (14B) + web tools caused session disconnect', time: '1 day ago' },
+  { id: 8, category: 'error' as const, agent: 'Eir', message: 'Fixed zone-tested logic — changed from inside-zone to body-close-beyond', time: '2 days ago' },
+  { id: 9, category: 'verification' as const, agent: 'Tyr', message: 'MK strategy audit: CONDITIONAL PASS — core features implemented, bug fixed', time: '2 days ago' },
+  { id: 10, category: 'execution' as const, agent: 'Bragi', message: 'Memory system overhaul complete: 6 improvements, 2 cron jobs active', time: '1 day ago' },
 ];
 
 export const strategyBoard = {
-  'To Analyze': [
-    { id: 's1', title: 'MK Medium/Hard variants', priority: 'medium', agent: '📚' },
-  ],
+  'To Analyze': [],
   'Spec Ready': [
-    { id: 's2', title: 'MK EASY spec complete — 20+ inputs documented', priority: 'high', agent: '🧠' },
+    { id: 's1', title: 'MK EASY spec complete — 20+ inputs documented', priority: 'high', agent: '🧠' },
   ],
   'Coding': [
-    { id: 's3', title: 'MK strategy v2 — 687 lines Pine Script', priority: 'high', agent: '⚙️' },
+    { id: 's2', title: 'MK strategy v2 — 687 lines Pine Script', priority: 'high', agent: '⚙️' },
   ],
   'Debugging': [
-    { id: 's4', title: 'Zone-tested logic inversion — FIXED', priority: 'critical', agent: '🐛' },
+    { id: 's3', title: 'Zone-tested logic inversion — FIXED', priority: 'critical', agent: '🐛' },
   ],
   'Verification': [
-    { id: 's5', title: 'Tyr audit: CONDITIONAL PASS', priority: 'high', agent: '🛡️' },
+    { id: 's4', title: 'Tyr audit: CONDITIONAL PASS', priority: 'high', agent: '🛡️' },
   ],
   'Execution Plan': [
-    { id: 's6', title: 'TradingView deployment — pending', priority: 'medium', agent: '🚀' },
+    { id: 's5', title: 'TradingView deployment — pending', priority: 'medium', agent: '🚀' },
   ],
   'Risk Review': [
-    { id: 's7', title: 'Heimdall review — pending', priority: 'medium', agent: '⚠️' },
+    { id: 's6', title: 'Heimdall review — pending', priority: 'medium', agent: '⚠️' },
   ],
   'Ready': [
-    { id: 's8', title: 'MK_EASY_SUPPLY_DEMAND_PINBAR v2', priority: 'high', agent: '✓' },
+    { id: 's7', title: 'MK_EASY_SUPPLY_DEMAND_PINBAR v2', priority: 'high', agent: '✓' },
   ],
   'Deployed': [
-    { id: 's9', title: 'Memory system overhaul', priority: 'high', agent: '🧾' },
+    { id: 's8', title: 'Memory system overhaul', priority: 'high', agent: '🧾' },
   ],
 };
 
 export const councilSession = {
-  question: 'Is the MK_EASY_SUPPLY_DEMAND_PINBAR strategy ready for deployment?',
+  question: 'Should we proceed with MEDIUM and HARD variants?',
   participants: [
     {
+      agent: agents[0],
+      reasoning: 'EASY strategy is complete and verified. User has requested MEDIUM and HARD variants. This extends the MK strategy suite for progressive difficulty trading.',
+      verdict: 'Proceed — Assign Mimir',
+    },
+    {
       agent: agents[2],
-      reasoning: 'Spec is complete with 20+ inputs, 7 alerts, and clear entry/exit rules. All EASY level requirements from Maurice Kenny course (Ch 8 + Ch 12) are implemented.',
-      verdict: 'PASS — Spec Complete',
+      reasoning: 'Source material analyzed by Saga. Ch 9+13 (MEDIUM) and Ch 10+14 (HARD) contain sufficient rules for specification. Will create full specs with inputs, alerts, and implementation notes.',
+      verdict: 'Ready — Will deliver both specs',
     },
     {
       agent: agents[3],
-      reasoning: '687 lines of Pine Script v6. VWAP, zone detection, pin bar scanner, entry/exit logic all implemented. Fixed zone-tested inversion bug.',
-      verdict: 'PASS — Code Complete',
+      reasoning: 'Awaiting specs. Once Mimir delivers, can implement MEDIUM and HARD variants. May reuse EASY core logic with additional filters and conditions.',
+      verdict: 'Standby — Ready to code',
     },
     {
       agent: agents[5],
-      reasoning: 'Found CRITICAL bug: zone-tested logic was inverted. Eir fixed it. Added gap-through-zone detection. All other features match spec.',
-      verdict: 'CONDITIONAL PASS — Bug Fixed',
-    },
-    {
-      agent: agents[8],
-      reasoning: 'Documented zone inversion fix in CRITICAL_FIXES.md. Created prevention checklist. Security incident (local model crash) also documented.',
-      verdict: 'PASS — Knowledge Preserved',
+      reasoning: 'Will audit both variants after Brokk implements. Learned from EASY audit — will verify zone logic specifically.',
+      verdict: 'Monitor — Audit pending',
     },
   ],
 };
