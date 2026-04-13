@@ -21,10 +21,10 @@ export const agents: Agent[] = [
     role: 'Mission Commander — Routes work, assigns agents, enforces workflow discipline',
     type: 'Coordinator',
     status: 'active',
-    currentTask: 'Assigned Mimir to create MEDIUM + HARD specs',
+    currentTask: 'Assigned Brokk to code MEDIUM + HARD variants',
     lastSeen: 'now',
     confidence: 92,
-    tasksCompleted: 1,
+    tasksCompleted: 2,
     accuracy: 97.3,
     capabilities: ['Task routing', 'Agent assignment', 'Workflow enforcement', 'Handoff management'],
   },
@@ -48,11 +48,11 @@ export const agents: Agent[] = [
     emoji: '🧠',
     role: 'Strategy Analyst — Converts raw ideas into code-ready trading specifications',
     type: 'Analysis Agent',
-    status: 'processing',
-    currentTask: 'Creating MK MEDIUM and MK HARD strategy specs (in progress)',
+    status: 'idle',
+    currentTask: 'Completed MK MEDIUM (14.6KB) and MK HARD (20.8KB) specs',
     lastSeen: 'now',
     confidence: 91,
-    tasksCompleted: 1,
+    tasksCompleted: 2,
     accuracy: 94.5,
     capabilities: ['Spec extraction', 'Logic structuring', 'Ambiguity detection', 'Multi-variant handling'],
   },
@@ -62,8 +62,8 @@ export const agents: Agent[] = [
     emoji: '⚙️',
     role: 'Pine Architect — Writes clean Pine Script from structured specifications',
     type: 'Code Agent',
-    status: 'idle',
-    currentTask: 'Awaiting MEDIUM/HARD specs from Mimir',
+    status: 'processing',
+    currentTask: 'Generating MK MEDIUM and MK HARD Pine Script variants',
     lastSeen: '5s ago',
     confidence: 93,
     tasksCompleted: 1,
@@ -143,55 +143,59 @@ export const agents: Agent[] = [
 ];
 
 export const activityFeed = [
-  { agent: '⚔️', name: 'Ragnar', action: 'assigned Mimir to create MEDIUM + HARD specs', time: '1m ago', type: 'success' as const },
-  { agent: '🧠', name: 'Mimir', action: 'processing MEDIUM and HARD strategy variants', time: '1m ago', type: 'success' as const },
+  { agent: '🧠', name: 'Mimir', action: 'completed MK MEDIUM (14.6KB) and MK HARD (20.8KB) specs', time: '1m ago', type: 'success' as const },
+  { agent: '⚔️', name: 'Ragnar', action: 'assigned Brokk to code MEDIUM + HARD variants', time: '1m ago', type: 'success' as const },
+  { agent: '⚙️', name: 'Brokk', action: 'generating Pine Script for MEDIUM and HARD variants', time: '1m ago', type: 'success' as const },
   { agent: '📚', name: 'Saga', action: 'analyzed MK course — 6 chapters, 50+ rules extracted', time: '2 days ago', type: 'success' as const },
   { agent: '🧠', name: 'Mimir', action: 'completed MK_EASY_SUPPLY_DEMAND_PINBAR spec', time: '2 days ago', type: 'success' as const },
   { agent: '⚙️', name: 'Brokk', action: 'generated 687 lines of Pine Script v6', time: '2 days ago', type: 'success' as const },
   { agent: '🛡️', name: 'Tyr', action: 'audited strategy — found CRITICAL zone logic bug', time: '2 days ago', type: 'warning' as const },
   { agent: '🐛', name: 'Eir', action: 'fixed zone-tested inversion + gap detection', time: '2 days ago', type: 'success' as const },
   { agent: '⚔️', name: 'Ragnar', action: 'approved MK strategy v2 for deployment', time: '1 day ago', type: 'success' as const },
-  { agent: '🧾', name: 'Bragi', action: 'documented security incident prevention', time: '1 day ago', type: 'success' as const },
 ];
 
 export const logs = [
-  { id: 1, category: 'observation' as const, agent: 'Ragnar', message: 'NEW TASK: Generate MEDIUM and HARD variants from MK course', time: '1m ago' },
-  { id: 2, category: 'execution' as const, agent: 'Mimir', message: 'Processing Ch 9 + Ch 13 (MEDIUM) and Ch 10 + Ch 14 (HARD)', time: '1m ago' },
-  { id: 3, category: 'verification' as const, agent: 'Tyr', message: 'CRITICAL: Zone tested logic inverted — zones marked tested on touch instead of body close beyond', time: '2 days ago' },
-  { id: 4, category: 'observation' as const, agent: 'Saga', message: 'MK course: 6 target folders identified (Ch 8-10 Supply/Demand, Ch 12-14 Price Action)', time: '2 days ago' },
-  { id: 5, category: 'execution' as const, agent: 'Brokk', message: 'MK strategy v2 deployed — 687 lines, VWAP + zones + pin bars + 7 alerts', time: '2 days ago' },
-  { id: 6, category: 'observation' as const, agent: 'Ragnar', message: 'Workflow complete: Saga → Mimir → Brokk → Tyr → Eir — all agents reported DONE', time: '2 days ago' },
-  { id: 7, category: 'warning' as const, agent: 'Bragi', message: 'Security incident documented: local model (14B) + web tools caused session disconnect', time: '1 day ago' },
-  { id: 8, category: 'error' as const, agent: 'Eir', message: 'Fixed zone-tested logic — changed from inside-zone to body-close-beyond', time: '2 days ago' },
-  { id: 9, category: 'verification' as const, agent: 'Tyr', message: 'MK strategy audit: CONDITIONAL PASS — core features implemented, bug fixed', time: '2 days ago' },
-  { id: 10, category: 'execution' as const, agent: 'Bragi', message: 'Memory system overhaul complete: 6 improvements, 2 cron jobs active', time: '1 day ago' },
+  { id: 1, category: 'execution' as const, agent: 'Mimir', message: 'DONE: MK MEDIUM (14.6KB) and MK HARD (20.8KB) specs complete', time: '1m ago' },
+  { id: 2, category: 'observation' as const, agent: 'Ragnar', message: 'Handoff: Mimir → Brokk for MEDIUM + HARD Pine Script implementation', time: '1m ago' },
+  { id: 3, category: 'execution' as const, agent: 'Brokk', message: 'Processing MEDIUM spec: minor zones, 3 confirmations, VWAP interference', time: '1m ago' },
+  { id: 4, category: 'execution' as const, agent: 'Brokk', message: 'Processing HARD spec: zone flips, power hour, false breakouts', time: '1m ago' },
+  { id: 5, category: 'verification' as const, agent: 'Tyr', message: 'CRITICAL: Zone tested logic inverted — zones marked tested on touch instead of body close beyond', time: '2 days ago' },
+  { id: 6, category: 'observation' as const, agent: 'Saga', message: 'MK course: 6 target folders identified (Ch 8-10 Supply/Demand, Ch 12-14 Price Action)', time: '2 days ago' },
+  { id: 7, category: 'execution' as const, agent: 'Brokk', message: 'MK strategy v2 deployed — 687 lines, VWAP + zones + pin bars + 7 alerts', time: '2 days ago' },
+  { id: 8, category: 'observation' as const, agent: 'Ragnar', message: 'Workflow complete: Saga → Mimir → Brokk → Tyr → Eir — all agents reported DONE', time: '2 days ago' },
+  { id: 9, category: 'warning' as const, agent: 'Bragi', message: 'Security incident documented: local model (14B) + web tools caused session disconnect', time: '1 day ago' },
+  { id: 10, category: 'error' as const, agent: 'Eir', message: 'Fixed zone-tested logic — changed from inside-zone to body-close-beyond', time: '2 days ago' },
 ];
 
 export const strategyBoard = {
   'To Analyze': [],
   'Spec Ready': [
     { id: 's1', title: 'MK EASY spec complete — 20+ inputs documented', priority: 'high', agent: '🧠' },
+    { id: 's2', title: 'MK MEDIUM spec — 14.6KB (minor zones, 3 confirmations)', priority: 'high', agent: '🧠' },
+    { id: 's3', title: 'MK HARD spec — 20.8KB (zone flips, power hour)', priority: 'high', agent: '🧠' },
   ],
   'Coding': [
-    { id: 's2', title: 'MK strategy v2 — 687 lines Pine Script', priority: 'high', agent: '⚙️' },
+    { id: 's4', title: 'MK strategy v2 — 687 lines Pine Script', priority: 'high', agent: '⚙️' },
+    { id: 's5', title: 'MK MEDIUM Pine Script — in progress', priority: 'high', agent: '⚙️' },
+    { id: 's6', title: 'MK HARD Pine Script — in progress', priority: 'high', agent: '⚙️' },
   ],
   'Debugging': [
-    { id: 's3', title: 'Zone-tested logic inversion — FIXED', priority: 'critical', agent: '🐛' },
+    { id: 's7', title: 'Zone-tested logic inversion — FIXED', priority: 'critical', agent: '🐛' },
   ],
   'Verification': [
-    { id: 's4', title: 'Tyr audit: CONDITIONAL PASS', priority: 'high', agent: '🛡️' },
+    { id: 's8', title: 'Tyr audit: CONDITIONAL PASS', priority: 'high', agent: '🛡️' },
   ],
   'Execution Plan': [
-    { id: 's5', title: 'TradingView deployment — pending', priority: 'medium', agent: '🚀' },
+    { id: 's9', title: 'TradingView deployment — pending', priority: 'medium', agent: '🚀' },
   ],
   'Risk Review': [
-    { id: 's6', title: 'Heimdall review — pending', priority: 'medium', agent: '⚠️' },
+    { id: 's10', title: 'Heimdall review — pending', priority: 'medium', agent: '⚠️' },
   ],
   'Ready': [
-    { id: 's7', title: 'MK_EASY_SUPPLY_DEMAND_PINBAR v2', priority: 'high', agent: '✓' },
+    { id: 's11', title: 'MK_EASY_SUPPLY_DEMAND_PINBAR v2', priority: 'high', agent: '✓' },
   ],
   'Deployed': [
-    { id: 's8', title: 'Memory system overhaul', priority: 'high', agent: '🧾' },
+    { id: 's12', title: 'Memory system overhaul', priority: 'high', agent: '🧾' },
   ],
 };
 
